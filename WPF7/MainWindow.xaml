@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF13"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
+        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle} ">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
