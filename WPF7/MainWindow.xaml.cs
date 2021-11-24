@@ -37,34 +37,31 @@ namespace WPF13
             radioBlack.Content = "Черный";
             int styleIndex = styleBox.SelectedIndex;
             Uri uri = new Uri("Light.xaml", UriKind.Relative);
-            Uri dic = new Uri("Dictionary1.xaml", UriKind.Relative);
             if (styleIndex == 1)
             {
                 uri = new Uri("Dark.xaml", UriKind.Relative);
                 radioBlack.Content = "Белый";
             }
-            ResourceDictionary resource1 = Application.LoadComponent(uri) as ResourceDictionary;
-            ResourceDictionary resource2 = Application.LoadComponent(dic) as ResourceDictionary;
+            ResourceDictionary resource = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(resource1);
-            Application.Current.Resources.MergedDictionaries.Add(resource2);
+            Application.Current.Resources.MergedDictionaries.Add(resource);
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
 
-            if (textBox != null)
-            {
-                textBox.FontFamily = new FontFamily(((sender as ComboBox).SelectedItem).ToString());
-            }
-        }
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-            if (textBox != null)
-            {
-                textBox.FontSize = Convert.ToDouble((sender as ComboBox).SelectedItem);
-            }
-        }
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontFamily = new FontFamily(((sender as ComboBox).SelectedItem).ToString());
+        //    }
+        //}
+        //private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (textBox != null)
+        //    {
+        //        textBox.FontSize = Convert.ToDouble((sender as ComboBox).SelectedItem);
+        //    }
+        //}
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
