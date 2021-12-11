@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF13"
         xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle} ">
+        Title="MainWindow" Height="450" Width="800" Style="{DynamicResource WindowStyle}">
     <Window.CommandBindings>
         <CommandBinding Command="Open" Executed="OpenExecuted"/>
         <CommandBinding Command="Save" Executed="SaveExecuted"/>
@@ -39,25 +39,10 @@
         </Menu>
         <ToolBarTray Grid.Row="2">
             <ToolBar Margin="5" Padding="5">
-                <ComboBox x:Name="cbFonts" SelectedIndex="0" Width="200">
-                    <ComboBoxItem Tag="Arial">Arial</ComboBoxItem>
-                    <ComboBoxItem Tag="Times New Roman">Times New Roman</ComboBoxItem>
-                    <ComboBoxItem Tag="Verdana">Verdana</ComboBoxItem>
-                    <ComboBoxItem Tag="Calibri">Calibri</ComboBoxItem>
-                </ComboBox>
-                <ComboBox x:Name="cbFontSize" SelectedIndex="0" Width="50">
-                    <ComboBoxItem Tag="12">12</ComboBoxItem>
-                    <ComboBoxItem Tag="14">14</ComboBoxItem>
-                    <ComboBoxItem Tag="16">16</ComboBoxItem>
-                    <ComboBoxItem Tag="18">18</ComboBoxItem>
-                    <ComboBoxItem Tag="20">20</ComboBoxItem>
-                    <ComboBoxItem Tag="22">22</ComboBoxItem>
-                    <ComboBoxItem Tag="24">24</ComboBoxItem>
-                    <ComboBoxItem Tag="32">32</ComboBoxItem>
-                    <ComboBoxItem Tag="48">48</ComboBoxItem>
-                    <ComboBoxItem Tag="72">72</ComboBoxItem>
-                </ComboBox>
+                <ComboBox x:Name="cbFonts" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged" ItemsSource="{StaticResource fonts}"/>
+                <ComboBox x:Name="cbFontSize" SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1" ItemsSource="{StaticResource sizeFonts}"/>
             </ToolBar>
+            
             <ToolBar>
                 <Button Width="50" Height="50"  Click="Button_Click_B">
                     <Image Source="Data/B.png"/>
@@ -80,7 +65,7 @@
                 </StackPanel>
             </ToolBar>
         </ToolBarTray>
-        <TextBox x:Name="textBox" Grid.Row="3" FontFamily="{Binding ElementName=cbFonts, Path=SelectedItem.Tag}"  FontSize="{Binding ElementName=cbFontSize, Path=SelectedItem.Tag}" TextWrapping="Wrap" FontStyle="Normal" FontWeight="Normal" TextDecorations ="None" Style="{DynamicResource TextBoxStyle}">
+        <TextBox x:Name="textBox" Grid.Row="3" FontFamily="{Binding ElementName=cbFonts, Path=SelectedItem}"  FontSize="{Binding ElementName=cbFontSize, Path=SelectedItem}" TextWrapping="Wrap" FontStyle="Normal" FontWeight="Normal" TextDecorations ="None" Style="{DynamicResource TextBoxStyle}">
         </TextBox>
     </Grid>
 </Window>
